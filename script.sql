@@ -26,3 +26,12 @@ create table log_customer(
   `new_active` tinyint(1) NULL
     );
 
+
+create table log_customer_select(
+  `registros` int(10) NOT NULL,
+  `operation_date` datetime NOT NULL,
+  `ip_address` varchar(255) NULL,
+  `host` varchar(255) NULL
+  );
+
+

@@ -72,38 +72,72 @@
 
             <br>
             <br>
-            <!-- tabla de log -->
-            <h4 class="text-center">Log</h4>
-            <table class="table table-striped table-condensed table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col">IdCliente</th>
-                    <th scope="col">Operación</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Último id</th>
-                    <th scope="col">Último documento</th>
-                    <th scope="col">Último activo</th>
-                    <th scope="col">Nuevo id</th>
-                    <th scope="col">Nuevo documento</th>
-                    <th scope="col">Nuevo activo</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($logs as $log)
-                    <tr>
-                        <th scope="row">{{ $log->customer }}</th>
-                        <td>{{ $log->operation }}</td>
-                        <td>{{ $log->operation_date }}</td>
-                        <td>{{ $log->last_id }}</td>
-                        <td>{{ $log->last_document }}</td>
-                        <td>{{ $log->last_active }}</td>
-                        <td>{{ $log->new_id }}</td>
-                        <td>{{ $log->new_document }}</td>
-                        <td>{{ $log->new_active }}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+            <a href="{{ url('/logtxt') }}" class="btn btn-primary" style="color: #fff">Descargar log txt</a>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Log CRUD</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Log Select</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- tabla de log -->
+                    <table class="table table-striped table-condensed table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">IdCliente</th>
+                            <th scope="col">Operación</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Último id</th>
+                            <th scope="col">Último documento</th>
+                            <th scope="col">Último activo</th>
+                            <th scope="col">Nuevo id</th>
+                            <th scope="col">Nuevo documento</th>
+                            <th scope="col">Nuevo activo</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($logs as $log)
+                            <tr>
+                                <th scope="row">{{ $log->customer }}</th>
+                                <td>{{ $log->operation }}</td>
+                                <td>{{ $log->operation_date }}</td>
+                                <td>{{ $log->last_id }}</td>
+                                <td>{{ $log->last_document }}</td>
+                                <td>{{ $log->last_active }}</td>
+                                <td>{{ $log->new_id }}</td>
+                                <td>{{ $log->new_document }}</td>
+                                <td>{{ $log->new_active }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <table class="table table-striped table-condensed table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col"># de Registros</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Dirección ip</th>
+                            <th scope="col">Nombre de host</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($selects as $select)
+                            <tr>
+                                <th scope="row">{{ $select->registros }}</th>
+                                <td>{{ $select->operation_date }}</td>
+                                <td>{{ $select->ip_address }}</td>
+                                <td>{{ $select->host }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            </div>
+
 
 
         </div>

@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/logtxt', 'HomeController@logtxt');
 Route::resource('customer', 'HomeController');
